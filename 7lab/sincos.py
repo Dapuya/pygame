@@ -1,7 +1,6 @@
 import pygame
 import math
 
-
 class Point:
     # constructed using a normal tupple
     def __init__(self, point_t = (0,0)):
@@ -46,7 +45,7 @@ blue = (0, 0, 255)
 pi = 3.14159
 
 vertical = [' 1.00', ' 0.75', ' 0.50', ' 0.25', ' 0.00', '-0.25', '-0.50', '-0.75', '-1.00']
-horizontal = ['-3π', '-2.5π', '-2π', '-1.5π', '-π', '-0.5π', '  0', ' 0.5π', ' π', ' 1.5π', ' 2π', ' 2.5π', ' 3π']
+horizontal = ['-3pi', '-2.5pi', '-2pi', '-1.5pi', '-pi', '-0.5pi', '  0', ' 0.5pi', ' pi', ' 1.5pi', ' 2pi', ' 2.5pi', ' 3pi']
 font = pygame.font.SysFont('arial', 15)
 cnt_for_vertical = len(vertical)
 cnt_for_horizontal = len(horizontal)
