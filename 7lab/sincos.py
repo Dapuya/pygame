@@ -20,7 +20,8 @@ class Point:
     # get back values in original tuple format
     def get(self):
         return (self.x, self.y)
-def draw_dashed_line(surf, color, start_pos, end_pos, width=1, dash_length=4):
+
+def draw_dashed_line(surf, color, start_pos, end_pos, width=3, dash_length=10):
     origin = Point(start_pos)
     target = Point(end_pos)
     displacement = target - origin
@@ -49,6 +50,8 @@ horizontal = ['-3pi', '-2.5pi', '-2pi', '-1.5pi', '-pi', '-0.5pi', '  0', ' 0.5p
 font = pygame.font.SysFont('arial', 15)
 cnt_for_vertical = len(vertical)
 cnt_for_horizontal = len(horizontal)
+
+l1, l2, l3, l4 = '2', '_', 'sin x', 'cos x'
 
 common_counter = 0
 from math import sin
@@ -122,9 +125,17 @@ while run:
     # graph
     # cos
     for x in range(70, 910):
-        pygame.draw.line(screen, blue, (x, int(280 + (240 * sin(3.5 * ((float(x)/980) * 2 * pi))))), (x+1, int(280 + (240 * sin(3.5 * ((float(x+1)/980) * 2 * pi))))))
-        pygame.draw.line(screen, red, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi) - pi / 2)))),(x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi) - pi / 2)))))
-        pygame.time.delay(5)
-        pygame.display.update()
+        if x % 4 == 2:
+            pygame.draw.aaline(screen, blue, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
+                               (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
+        if x % 4 == 0:
+            pygame.draw.aaline(screen, white, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
+                               (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
+
+        # pygame.draw.aaline(screen, blue, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
+        #                    (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
+        pygame.draw.aaline(screen, red, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi) - pi / 2)))),
+                           (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi) - pi / 2)))), 3)
+
 
     pygame.display.flip()
