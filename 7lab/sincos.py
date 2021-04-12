@@ -125,15 +125,15 @@ while run:
     # graph
     # cos
     for x in range(70, 910):
-        if x % 4 == 2:
-            pygame.draw.aaline(screen, blue, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
-                               (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
-        if x % 4 == 0:
-            pygame.draw.aaline(screen, white, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
-                               (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
+        # if x % 4 == 2:
+        #     pygame.draw.aaline(screen, blue, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
+        #                        (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
+        # if x % 4 == 0:
+        #     pygame.draw.aaline(screen, white, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
+        #                        (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
 
-        # pygame.draw.aaline(screen, blue, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
-        #                    (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
+        pygame.draw.aaline(screen, blue, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi))))),
+                           (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi))))), 3)
         pygame.draw.aaline(screen, red, (x, int(280 + (240 * sin(3.5 * ((float(x) / 980) * 2 * pi) - pi / 2)))),
                            (x + 1, int(280 + (240 * sin(3.5 * ((float(x + 1) / 980) * 2 * pi) - pi / 2)))), 3)
 
