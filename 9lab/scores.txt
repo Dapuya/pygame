@@ -4,3 +4,7 @@ Level of R: 1
 
 Score of B: 0
 Level of B: 1
+
+
+Score of R: 20
+Level of R: 3

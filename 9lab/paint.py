@@ -27,8 +27,10 @@ eraser = pygame.image.load('eraser.png')
 is_eraser = True
 
 
+
+screen.fill(white)
+
 while run:
-    screen.fill(white)
     screen.blit(pen, (20, 20))
     screen.blit(eraser, (62, 20))
     screen.blit(circle, (104, 20))
@@ -42,17 +44,21 @@ while run:
         if event.type == pygame.QUIT:
             run = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            prev = pygame.mouse.get_pos()
+            x, y = event.pos
+            if pen.get_rect().collidepoint(x, y):
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    prev = pygame.mouse.get_pos()
+                if event.type == pygame.MOUSEMOTION:
+                    cur = pygame.mouse.get_pos()
+                    if prev:
+                        pygame.draw.line(screen, red, prev, cur, 1)
+                        prev = cur
+                if event.type == pygame.MOUSEBUTTONUP:
+                    prev = None
         if event.type == pygame.MOUSEMOTION:
-            for i, j in pygame.mouse.get_pos():
-                if 20 < i < 52 and 20 < j < 52:
-
-            # curr = pygame.mouse.get_pos()
-            # if prev:
-            #     pygame.draw.line(screen, (0, 255, 0), prev, curr, 2)
-            #     prev = curr
+            pass
         if event.type == pygame.MOUSEBUTTONUP:
-            prev = None
+            pass
 
 
 
