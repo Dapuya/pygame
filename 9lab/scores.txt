@@ -1,13 +1,6 @@
 
+Score of R: 0
+Level of R: 1
 
-Score of R: 15
-Level of R: 2
-
-Score of R: 18
-Level of R: 3
-
-Score of R: 13
-Level of R: 2
-
-Score of R: 19
-Level of R: 3
+Score of B: 0
+Level of B: 1
