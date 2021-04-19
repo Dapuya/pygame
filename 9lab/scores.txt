@@ -8,3 +8,125 @@ Level of B: 1
 
 Score of R: 20
 Level of R: 3
+
+
+Score of R: 14
+Level of R: 2
+
+
+Score of R: 14
+Level of R: 2
+
+
+Score of R: 21
+Level of R: 3
+
+
+Score of R: 13
+Level of R: 2
+
+
+Score of R: 14
+Level of R: 2
+
+
+Score of R: 12
+Level of R: 2
+
+
+Score of R: 2
+Level of R: 1
+
+Score of B: 0
+Level of B: 1
+
+
+Score of R: 1
+Level of R: 1
+
+
+Score of R: 21
+Level of R: 3
+
+
+Score of R: 15
+Level of R: 2
+
+
+Score of R: 1
+Level of R: 1
+
+Score of B: 1
+Level of B: 1
+
+
+Score of R: 24
+Level of R: 3
+
+
+Score of R: 17
+Level of R: 3
+
+
+Score of R: 26
+Level of R: 3
+
+
+Score of R: 9
+Level of R: 2
+
+
+Score of R: 12
+Level of R: 2
+
+
+Score of R: 19
+Level of R: 3
+
+
+Score of R: 0
+Level of R: 1
+
+Score of B: 0
+Level of B: 1
+
+
+Score of R: 18
+Level of R: 3
+
+
+Score of R: 11
+Level of R: 2
+
+
+Score of R: 11
+Level of R: 2
+
+
+Score of R: 14
+Level of R: 2
+
+
+Score of R: 11
+Level of R: 2
+
+
+Score of R: 0
+Level of R: 1
+
+Score of B: 0
+Level of B: 1
+
+
+Score of R: 0
+Level of R: 1
+
+Score of B: 0
+Level of B: 1
+
+
+Score of R: 1
+Level of R: 1
+
+Score of B: 1
+Level of B: 1

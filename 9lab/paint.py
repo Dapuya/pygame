@@ -1,68 +1,161 @@
 import pygame
 
-white = (255, 255, 255)
-black = (0, 0, 0)
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
-
 pygame.init()
+
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+ORANGE = (255, 140, 0)
+pi = 3.14
+
 
 screen = pygame.display.set_mode((1000, 800))
 clock = pygame.time.Clock()
 pygame.display.set_caption('Paint')
-
+font1 = pygame.font.SysFont('serif', 20)
+font2 = pygame.font.SysFont('arial', 15)
+font3 = pygame.font.SysFont('arial', 30)
+a = 20
 
 run = True
 
-prev, curr = None, None
+prev, cur, last = None, None, None
 
-pen = pygame.image.load('pen.png')
 is_pen = False
-circle = pygame.image.load('circle.png')
 is_circle = False
-rectangle = pygame.image.load('rectangle.png')
-is_rectangle = False
-eraser = pygame.image.load('eraser.png')
-is_eraser = True
+is_rect = False
+is_eraser = False
+click = False
+color = (0, 0, 0)
+screen.fill(WHITE)
 
 
+red_color_rect = pygame.Rect(20, 20, 30, 30)
+blue_color_rect = pygame.Rect(60, 20, 30, 30)
+green_color_rect = pygame.Rect(20, 60, 30, 30)
+orange_color_rect = pygame.Rect(60, 60, 30, 30)
+pen_rect = pygame.Rect(110, 20, 50, 25)
+circle_rect = pygame.Rect(170, 20, 50, 25)
+eraser_rect = pygame.Rect(230, 20, 60, 25)
+rectangle_rect = pygame.Rect(110, 55, 80, 25)
+pen = font2.render("Pen", True, BLACK)
+circle = font2.render("Circle", True, BLACK)
+rectangle = font2.render("Rectangle", True, BLACK)
+eraser = font2.render("Eraser", True, BLACK)
+radius = font2.render("Radius :", True, BLACK)
+radius1 = font3.render(str(a), True, BLACK)
 
-screen.fill(white)
+imagecount = 1
+
+
+def show_instructions():
+    pygame.draw.rect(screen, RED, red_color_rect)
+    pygame.draw.rect(screen, BLUE, blue_color_rect)
+    pygame.draw.rect(screen, GREEN, green_color_rect)
+    pygame.draw.rect(screen, ORANGE, orange_color_rect)
+    pygame.draw.rect(screen, BLACK, (0, 0, 300, 100), 1)
+    pygame.draw.rect(screen, WHITE, pen_rect, 2)
+    pygame.draw.rect(screen, WHITE, circle_rect, 2)
+    pygame.draw.rect(screen, WHITE, eraser_rect, 2)
+    pygame.draw.rect(screen, WHITE, rectangle_rect, 2)
+
+    screen.blit(pen, (115, 25))
+    screen.blit(circle, (175, 25))
+    screen.blit(rectangle, (115, 60))
+    screen.blit(eraser, (235, 25))
+    screen.blit(radius, (310, 25))
+    screen.blit(radius1, (320, 45))
+
+
+def draw_circle(color, (x, y)):
+    pygame.draw.circle(screen, color, (x, y), 20, 2)
+
 
 while run:
-    screen.blit(pen, (20, 20))
-    screen.blit(eraser, (62, 20))
-    screen.blit(circle, (104, 20))
-    screen.blit(rectangle, (146, 20))
-    pygame.draw.rect(screen, red, (190, 20, 15, 15))
-    pygame.draw.rect(screen, green, (215, 20, 15, 15))
-    pygame.draw.rect(screen, blue, (240, 20, 15, 15))
-    pygame.draw.rect(screen, black, (0, 0, 270, 65), 1)
+    rx, ry = pygame.mouse.get_pos()
+    mx, my = pygame.mouse.get_pos()
+    if pen_rect.collidepoint((mx, my)):
+        if click:
+            is_pen = True
+            is_eraser = False
+            is_rect = False
+            is_circle = False
+    if circle_rect.collidepoint((mx, my)):
+        if click:
+            is_circle = True
+            is_pen = False
+            is_eraser = False
+            is_rect = False
+            m = int(input())
+            a = m
+    if rectangle_rect.collidepoint((mx, my)):
+        if click:
+            is_rect = True
+            is_pen = False
+            is_circle = False
+            is_eraser = False
+    if eraser_rect.collidepoint((mx, my)):
+        if click:
+            is_eraser = True
+            is_pen = False
+            is_circle = False
+            is_rect = False
+    if red_color_rect.collidepoint((mx, my)):
+        if click:
+            color = RED
+    if green_color_rect.collidepoint((mx, my)):
+        if click:
+            color = GREEN
+    if blue_color_rect.collidepoint((mx, my)):
+        if click:
+            color = BLUE
+    if orange_color_rect.collidepoint((mx, my)):
+        if click:
+            color = ORANGE
+    click = False
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            x, y = event.pos
-            if pen.get_rect().collidepoint(x, y):
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    prev = pygame.mouse.get_pos()
-                if event.type == pygame.MOUSEMOTION:
-                    cur = pygame.mouse.get_pos()
-                    if prev:
-                        pygame.draw.line(screen, red, prev, cur, 1)
-                        prev = cur
-                if event.type == pygame.MOUSEBUTTONUP:
-                    prev = None
+            prev = pygame.mouse.get_pos()
+            rx, ry = pygame.mouse.get_pos()
+            if event.button == 1:
+                click = True
         if event.type == pygame.MOUSEMOTION:
-            pass
+            cur = pygame.mouse.get_pos()
         if event.type == pygame.MOUSEBUTTONUP:
-            pass
+            lx, ly = pygame.mouse.get_pos()
+            prev = None
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_s:
+                if imagecount < 10:
+                    imagecount = "0" + str(imagecount)
+                pygame.image.save(screen, "image{}.png".format(imagecount))
+                imagecount = int(imagecount)
+                imagecount += 1
 
+    if is_pen:
+        if prev:
+            pygame.draw.aaline(screen, color, prev, cur, 1)
+            prev = cur
 
+    if is_circle:
+        draw_circle(color, (rx, ry))
 
-    pygame.display.flip()
+    if is_eraser:
+        if prev:
+            pygame.draw.circle(screen, WHITE, prev, 20)
+            prev = cur
+
+    # if is_rect:
+    #     lx, ly = pygame.mouse.get_pos()
+    #     pygame.draw.rect(screen, color, (rx, ry, (lx - rx), (ly - ry)))
+
+    show_instructions()
+    pygame.display.update()
     clock.tick(30)
 
 pygame.quit()
