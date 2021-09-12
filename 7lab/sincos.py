@@ -69,8 +69,8 @@ while run:
     pygame.draw.line(screen, black, (930, 20), (930, 540), 2)
 
     # x & y axes
-    pygame.draw.line(screen, black, (50, 280), (930, 280), 2)
-    pygame.draw.line(screen, black, (490, 20), (490, 540), 2)
+    pygame.draw.line(screen, black, (50, 280), (930, 280), 4)
+    pygame.draw.line(screen, black, (490, 20), (490, 540), 4)
 
     # grid
     for i in range(40, 530, 60):

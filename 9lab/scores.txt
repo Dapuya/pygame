@@ -130,3 +130,33 @@ Level of R: 1
 
 Score of B: 1
 Level of B: 1
+
+
+Score of R: 2
+Level of R: 1
+
+Score of B: 0
+Level of B: 1
+
+
+Score of R: 18
+Level of R: 3
+
+
+Score of R: 17
+Level of R: 3
+
+
+Score of R: 19
+Level of R: 3
+
+
+Score of R: 13
+Level of R: 2
+
+
+Score of R: 0
+Level of R: 1
+
+Score of B: 0
+Level of B: 1
